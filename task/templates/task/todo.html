@@ -8,6 +8,7 @@
 
 {% for todo in task %}
     <div>
+        <a href="{% url 'update' todo.id %}">Update</a>
         <p>{{todo}}</p>
     </div>
 {% endfor %}

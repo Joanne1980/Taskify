@@ -9,12 +9,27 @@ from .forms import *
 def index(request):
     task = todo.objects.all()
 
-    form = Todoform()
+    form = TodoForm()
 
     if request.method =='POST':
-        form = Todoform(request.POST)
+        form = TodoForm(request.POST)
         if form.is_valid():
             form.save()
         return redirect('/')
     context = {'task':task, 'form':form}
     return render(request, 'task/todo.html', context)
+
+def update(request, pk):
+    task = todo.objects.get(id=pk)
+
+    form = TodoForm(instance=task)
+
+    if request.method == 'POST': 
+        form = TodoForm(request.POST, instance=task)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+
+    context = {'form':form}
+
+    return render(request, 'task/update.html', context)    
