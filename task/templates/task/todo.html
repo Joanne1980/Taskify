@@ -1,5 +1,8 @@
-<h1> Todo list</h1>
 
+{% load static %} 
+
+{% block content %}
+<h1> Todo list</h1>
 <form method="POST" action="/">
     {% csrf_token %}
     {{form.title}}
@@ -19,3 +22,5 @@
 
     </div>
 {% endfor %}
+
+{% endblock %}

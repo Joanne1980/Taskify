@@ -1,0 +1,20 @@
+{% load static %}
+
+<header>
+    {% with request.resolver_match.url_name as url_name %}
+      <nav class="navbar navbar-dark bg-dark">
+          <div class="container-fluid">
+            <!--Logo-->
+            <a class="navbar-brand" href="#"><img src="{% static 'images/logo1.webp' %}" alt ="Taskify logo" class="logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <!--Navbar-->
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-link {% if url_name == 'home' %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Todo</a>
+            </div>
+          </div>
+        </nav>
+        {% endwith %}
+  </header>
