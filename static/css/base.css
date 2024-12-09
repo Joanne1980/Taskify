@@ -19,6 +19,11 @@
 
 html{
     height: 100vh;
+  
+}
+
+body {
+    background: white url("images/pexels-scottwebb.webp") no-repeat;
 }
 
 main{
@@ -31,31 +36,42 @@ main{
     
 }
 
-.container{
-    border: solid 5px;
-    border-color: #10b981;
-    margin-top: 100px;
-    width: 50%;
-   
-    
-}
-
 .input{
     border: solid 2px;
     border-color: #10b981;
     background-color: #10b981;
     margin-bottom: 20px;
-   
 }
 
 .todo-list{
     background-color: var(--cream); 
+    display: flex;
+    justify-content:space-around;
+}
+
+.button {
+    background-color: #0c84b3; 
+    border: none;
+    color: #E8DFD9;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    
+}
+.text{
+    font-size: 20px;
+    margin: 5px;
+    display:flex;
+    justify-content:space-around;
+    text-align: right;
 }
 
 /**Footer**/
 footer{
     flex-shrink: 0;
-    background-color: var(--blue);
+    background-color: #0c84b3;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -63,5 +79,6 @@ footer{
     position: fixed;
     bottom: 0;
     width: 100%;
+    font-size: 10px;
 
 }

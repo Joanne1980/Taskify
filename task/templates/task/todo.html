@@ -2,22 +2,26 @@
 {% load static %} 
 {% block title %}Todo List{% endblock %} 
 {% block content %}
-<div class="container">
+<div class="container justify-content-sm-center">
   <div class="input d-flex justify-content-center">
     <form method="POST" action="/">
       {% csrf_token %} {{form.title}}
-      <input type="Submit" name="Create Task" />
+      <button><input type="Submit" name="Create Task"/></button>
     </form>
   </div>
   {% for todo in task %}
   <div class="todo-list d-flex justify-content-center">
-    <a href="{% url 'update' todo.id %}">Update</a>
-    <a href="{% url 'delete' todo.id %}">Delete</a>
+    <div>
+    <button class="update"><a href="{% url 'update' todo.id %}">Update</a></button>
+    </div>
+    <div>
+    <button><a href="{% url 'delete' todo.id %}">Delete</a></button>
 
+    </div>
     {% if todo.complete == True %}
     <strike>{{todo}}</strike>
     {% else %}
-    <span>{{todo}}</span>
+    <span class="text">{{todo}}</span>
     {% endif %}
   </div>
   {% endfor %}
