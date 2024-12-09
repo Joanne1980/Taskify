@@ -2,6 +2,9 @@
  <!-- {% url 'todo' as todo_url %} -->
 <!-- {% url 'update' as update_url %}
 {% url 'delete' as delete_url %}  -->
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +22,7 @@
 {% endblock%}
 
     <title>Taskify - {% block title %}{% endblock %}</title>
+    
 </head>
 <body>
     {% include 'includes/header.html' %}

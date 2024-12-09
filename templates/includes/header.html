@@ -12,8 +12,21 @@
             <!--Navbar-->
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
-                <a class="nav-link {% if url_name == 'home' %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Todo</a>
+                <a class="nav-link {% if url_name == 'Todo' %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Todo</a>
             </div>
+            {% if user.is_authenticated %}
+<li class="nav-item">
+	<a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
+</li>
+{% else %}
+<li class="nav-item">
+	<a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+		href="{% url 'account_signup' %}">Register</a>
+</li>
+<li class="nav-item">
+	<a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
+</li>
+{% endif %}
           </div>
         </nav>
         {% endwith %}
