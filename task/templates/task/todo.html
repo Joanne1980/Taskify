@@ -1,27 +1,25 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
 {% load static %} 
-
-{% block title %}Todo List{% endblock %}
+{% block title %}Todo List{% endblock %} 
 {% block content %}
+<div class="container">
+  <div class="input d-flex justify-content-center">
+    <form method="POST" action="/">
+      {% csrf_token %} {{form.title}}
+      <input type="Submit" name="Create Task" />
+    </form>
+  </div>
+  {% for todo in task %}
+  <div class="todo-list d-flex justify-content-center">
+    <a href="{% url 'update' todo.id %}">Update</a>
+    <a href="{% url 'delete' todo.id %}">Delete</a>
 
-<form method="POST" action="/">
-    {% csrf_token %}
-    {{form.title}}
-    <input type="Submit" name="Create Task">
-</form>
-
-{% for todo in task %}
-    <div>
-        <a href="{% url 'update' todo.id %}">Update</a>
-        <a href="{% url 'delete' todo.id %}">Delete</a>
-
-        {% if todo.complete == True %}
-            <strike>{{todo}}</strike>
-        {% else %}
-            <span>{{todo}}</span>
-        {% endif %}
-
-    </div>
-{% endfor %}
-
+    {% if todo.complete == True %}
+    <strike>{{todo}}</strike>
+    {% else %}
+    <span>{{todo}}</span>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}

@@ -17,9 +17,39 @@
 
 }
 
+html{
+    height: 100vh;
+}
+
+main{
+    height: 75vh;
+}
+
 /**header **/
 .navbar{
     background-color: var(--blue);
+    
+}
+
+.container{
+    border: solid 5px;
+    border-color: #10b981;
+    margin-top: 100px;
+    width: 50%;
+   
+    
+}
+
+.input{
+    border: solid 2px;
+    border-color: #10b981;
+    background-color: #10b981;
+    margin-bottom: 20px;
+   
+}
+
+.todo-list{
+    background-color: var(--cream); 
 }
 
 /**Footer**/
