@@ -1,8 +1,9 @@
-
+{% extends 'base.html %}
 {% load static %} 
 
+{% block title %}<h1>Todo List</h1>{% endblock %}
 {% block content %}
-<h1> Todo list</h1>
+
 <form method="POST" action="/">
     {% csrf_token %}
     {{form.title}}
