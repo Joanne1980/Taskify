@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+   /** fonts **/
+   --title: 'Roboto', serif;
+   --main-font: 'Roboto', serif;
+   --font: #000;
+   
+   /** colors**/
+   --Background: #FFFFFF;
+   --blue:var(#0c84b3);
+   --turquoise:var(#10b981);
+   --cream:var(#E8DFD9);
+
+   /**utils**/
+   --border: 2px solid #10b981;
+
+}
+
+/**header **/
+.navbar{
+    background-color: var(--blue);
+}
+
+/**Footer**/
+footer{
+    flex-shrink: 0;
+    background-color: var(--blue);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+}
