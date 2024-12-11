@@ -1,22 +1,32 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
-from .models import *
-from .forms import TodoForm
+from django.shortcuts import render
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
 
-
+from .models import Todo
 # Create your views here.
-def todo_view(request):
-    form = TodoForm()
-    task = None  # Define or fetch your task here if needed
+class TodoList(ListView):
+    model = Todo
+    context_object_name = 'tasks'
 
-    if request.method == "POST":
-        form = TodoForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("/")
 
-    context = {"task": task, "form": form}
-    return render(request, "task/todo.html", context)  # Replace with your actual template
+class TodoDetail(DetailView):
+     model = Todo   
+     context_object_name = 'task'
+     template_name = 'task/todo.html'
+
+class TodoCreate(CreateView):
+     model = Todo
+     fields = '__all__'
+     success_url = reverse_lazy('tasks')
+
+
+
+
+
+
+
 
 
 def update(request, pk):
