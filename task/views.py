@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 from .models import Todo
@@ -16,6 +16,7 @@ class TodoDetail(DetailView):
      context_object_name = 'task'
      template_name = 'task/todo.html'
 
+
 class TodoCreate(CreateView):
      model = Todo
      fields = '__all__'
@@ -27,34 +28,7 @@ class TodoUpdate(UpdateView):
     success_url = reverse_lazy('tasks')
 
 
-
-
-
-
-
-
-def update(request, pk):
-    task = Todo.objects.get(id=pk)
-
-    form = TodoForm(instance=task)
-
-    if request.method == "POST":
-        form = TodoForm(request.POST, instance=task)
-        if form.is_valid():
-            form.save()
-            return redirect("/")
-
-    context = {"form": form}
-
-    return render(request, "task/update.html", context)
-
-
-def delete(request, pk):
-    task = get_object_or_404(Todo, id=pk)
-
-    if request.method == "POST":
-        item.delete()
-        return redirect("/")
-
-    context = {"item": item}
-    return render(request, "task/delete.html", context)
+class DeleteTodo(DeleteView):
+    model = Todo
+    context_object_name = 'task'
+    success_url = reverse_lazy('tasks')
