@@ -1,33 +1,15 @@
 {% load static %}
 
 <header>
-    {% with request.resolver_match.url_name as url_name %}
-      <nav class="navbar navbar" style="background-color:#0c84b3">
-          <div class="container-fluid">
-            <!--Logo-->
-            <a class="navbar-brand" href="#"><img src="{% static 'images/logo1.webp' %}" alt ="Taskify logo" class="logo"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <!--Navbar-->
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav">
-                <a class="nav-link {% if url_name == 'todo' %}active{% endif %}" aria-current="page" href="{% url 'todo' %}">Todo</a>
-                {% if user.is_authenticated %}
-<li class="nav-item">
-	<a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
-</li>
-{% else %}
-<li class="nav-item">
-	<a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
-		href="{% url 'account_signup' %}">Register</a>
-</li>
-<li class="nav-item">
-	<a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
-</li>
-{% endif %}
-            </div> 
-          </div>
-        </nav>
-        {% endwith %}
+    
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="navbar-brand" href="#"><img src="{% static 'images/logo1.webp' %}" alt ="Taskify logo" class="logo"></a>
+
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
+        </li>
+        
+        {% endif %}
   </header>

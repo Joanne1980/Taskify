@@ -7,5 +7,5 @@ class TodoForm(forms.ModelForm):
     title = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Add in a new task'}))
 
     class Meta:
-        model = todo
+        model = Todo
         fields = '__all__'

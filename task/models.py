@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class todo(models.Model):
+class Todo(models.Model):
     title = models.CharField(max_length=200)
     complete = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
