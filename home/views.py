@@ -6,7 +6,4 @@ from django.views.generic import TemplateView
 class Home(TemplateView):
     template_name = 'home/home.html'
 
-    if user_is_logged_in:
-        return redirect('/todo')
-    else:  
-        return redirect('/login')
+    
