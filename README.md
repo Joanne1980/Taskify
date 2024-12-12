@@ -1,6 +1,6 @@
 # Taskify
 
-[View live site here!](https://taskify-todo-eaffb38b30eb.herokuapp.com/)
+[View live site here!](https://taskify-todo-eaffb38b30eb.herokuapp.com/login/)
 
 **Project Overview**
 
@@ -81,7 +81,7 @@ The developement of the task application was broken down in to smaller easier to
 
 The colours I originally chose for the Taskify app changed during developement for a more cleaner look. 
 
-![Colour Palette](/documentation/colours.png)
+![Colour Palette](/Documentation/colours.png)
 
 
 ### Typography
@@ -156,7 +156,7 @@ Navigate to Deploy tab
 ![Lighthouse](/Documentation/Lighthouse.png)
 My lighthouse testing was very successful I was very happy with this outcome. 
 
-![wave](/Documentation/wave.png)
+![wave](/Documentation/Wave.png)
 A few erros but I was unable to fix due to not being able to see exactly where the issue was coming from. 
 
 ![W3C CSS Validation](/Documentation/CSS.png)
