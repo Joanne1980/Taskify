@@ -8,7 +8,7 @@
 
 This web application was designed with the intention of helping peopl stay up to date with tasks they need to get through each day 
 
-![amiresponsive](/documentation/Amiresponsive.png)
+![amiresponsive](/Documentation/Amiresponsive.png)
 
 ---
 
@@ -81,7 +81,7 @@ The developement of the task application was broken down in to smaller easier to
 
 The colours I originally chose for the Taskify app changed during developement for a more cleaner look. 
 
-![Colour Palette](/Documentation/colours.png)
+![Colour Palette](/Documentation/Colours.png)
 
 
 ### Typography
