@@ -8,7 +8,7 @@
 
 This web application was designed with the intention of helping peopl stay up to date with tasks they need to get through each day 
 
-![amiresponsive](/documentation/Am i responsive.png)
+![amiresponsive](/documentation/Amiresponsive.png)
 
 ---
 
