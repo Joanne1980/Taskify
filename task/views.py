@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
+from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import DeleteView, FormView
 from django.urls import reverse_lazy
 
 from django.contrib.auth.views import LoginView
@@ -10,6 +11,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib import messages
 from .models import Todo
+
 
 class UserLoginView(LoginView):
     template_name = 'task/login.html'
@@ -21,12 +23,12 @@ class UserLoginView(LoginView):
         return reverse_lazy('tasks')
 
     def logout(request):
-        meaasges.success(request, 'You have logged out!')    
+        meaasges.success(request, 'You have logged out!')
         return redirect('login')
 
 
-class RegisterPage(FormView):  
-    template_name = 'task/register.html'  
+class RegisterPage(FormView):
+    template_name = 'task/register.html'
     form_class = UserCreationForm
     redirect_authenticated_user = True
     success_url = reverse_lazy('tasks')
@@ -40,7 +42,7 @@ class RegisterPage(FormView):
     def get(self, *args, **kwargs):
         if self.request.user.is_authenticated:
             return redirect('tasks')
-        return super(RegisterPage, self).get(*args, **kwargs)       
+        return super(RegisterPage, self).get(*args, **kwargs)
 
 
 class TodoList(LoginRequiredMixin, ListView):
@@ -62,19 +64,20 @@ class TodoList(LoginRequiredMixin, ListView):
 
 
 class TodoDetail(LoginRequiredMixin, DetailView):
-     model = Todo   
-     context_object_name = 'task'
-     template_name = 'task/todo.html'
+    model = Todo
+    context_object_name = 'task'
+    template_name = 'task/todo.html'
 
 
 class TodoCreate(LoginRequiredMixin, CreateView):
-     model = Todo
-     fields = ['title', 'description', 'complete']
-     success_url = reverse_lazy('tasks')
+    model = Todo
+    fields = ['title', 'description', 'complete']
+    success_url = reverse_lazy('tasks')
 
-     def form_valid(self, form):
+    def form_valid(self, form):
         form.instance.user = self.request.user
         return super(TodoCreate, self).form_valid(form)
+
 
 class TodoUpdate(LoginRequiredMixin, UpdateView):
     model = Todo
