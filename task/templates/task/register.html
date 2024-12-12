@@ -1,14 +1,17 @@
 {% extends 'task/main.html' %}
 {% block content %}
-
+<div class="header-bar">
 <h1>Register</h1>
+</div>
 
+<div class="card-body">
 <form method="POST">
     {% csrf_token %}
     {{form.as_p}}
-    <input type="submit" value="register"/>
+    <input class="button" type="submit" value="register"/>
 </form>
+<p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
 
-<p>Already have an account? <a href=''>Login</a></p>
+</div>
 
 {% endblock content %}

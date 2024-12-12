@@ -8,7 +8,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-
+from django.contrib import messages
 from .models import Todo
 
 class UserLoginView(LoginView):
@@ -17,7 +17,12 @@ class UserLoginView(LoginView):
     redirect_authenticated_user = True
 
     def get_success_url(self):
+        messages.success(self.request, 'You are logged in!')
         return reverse_lazy('tasks')
+
+    def logout(request):
+        meaasges.success(request, 'You have logged out!')    
+        return redirect('login')
 
 
 class RegisterPage(FormView):  
@@ -42,11 +47,10 @@ class TodoList(LoginRequiredMixin, ListView):
     model = Todo
     context_object_name = 'tasks'
 
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['tasks'] = context['tasks'].filter(user=self.request.user)
-        context['count'] = context['tasks'].filter(complete=False)
+        context['count'] = context['tasks'].filter(complete=False).count()
 
         search_input = self.request.GET.get('search-area') or ''
         if search_input:
