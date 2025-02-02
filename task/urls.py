@@ -3,7 +3,7 @@ from .views import TodoList, TodoDetail, TodoCreate, TodoUpdate, DeleteTodo, Use
 from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
-    path('login/', UserLoginView.as_view(), name='login'),
+    path('accounts/login/', UserLoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
     path('register/', RegisterPage.as_view(), name='register'),
     path('', TodoList.as_view(), name="tasks"),
@@ -11,6 +11,5 @@ urlpatterns = [
     path('create-todo/', TodoCreate.as_view(), name="task-create"),
     path('update-todo/<int:pk>/', TodoUpdate.as_view(), name='task-update'),
     path('delete-todo/<int:pk>/', DeleteTodo.as_view(), name='task-delete'),
-
 
 ]
