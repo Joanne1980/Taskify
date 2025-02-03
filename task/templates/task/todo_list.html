@@ -19,7 +19,7 @@
         <input class="button" type="submit" value='Search'>
     </form>
     {% if tasks|length > 0 %}
-    <a id="add-link" href="{% url 'task-create' %}">&#x2b;</a>
+    <a id="add-link" href="{% url 'task-create' %}" onmouseover="showHoverToast()">&#x2b;</a>
     {% endif %}
 </div>
 
@@ -32,12 +32,12 @@
         <div class="task-title">
             {% if task.complete %}
             <div class="task-complete-icon"></div>
-            <i><s><a href="{% url 'task-update' task.id %}">{{task}}</a></s></i> {% else %}
+            <i><s><a href="{% url 'task-update' task.id %}" onmouseover="showHoverToast()">{{task}}</a></s></i> {% else %}
             <div class="task-incomplete-icon"></div>
-            <a href="{% url 'task-update' task.id %}">{{task}}</a> {% endif %}
+            <a href="{% url 'task-update' task.id %}" onmouseover="showHoverToast()">{{task}}</a> {% endif %}
         </div>
         <div class="task-controls">
-            <a class="delete-link" href="{% url 'task-delete' task.id %}">&#215;</a>
+            <a class="delete-link" href="{% url 'task-delete' task.id %}" onmouseover="showHoverToast()">&#215;</a>
             <span class="handle">&nbsp;&#10247;</span>
         </div>
     </div>
