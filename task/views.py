@@ -76,6 +76,7 @@ class TodoCreate(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
+        messages.success(self.request, "Task created successfully!")
         return super(TodoCreate, self).form_valid(form)
         
 
@@ -85,8 +86,22 @@ class TodoUpdate(LoginRequiredMixin, UpdateView):
     fields = ['title', 'description', 'complete']
     success_url = reverse_lazy('tasks')
 
+    def form_valid(self, form):
+        messages.success(self.request, "Task updated successfully!")
+        return super(TodoUpdate, self).form_valid(form)
+
+
 
 class DeleteTodo(LoginRequiredMixin, DeleteView):
     model = Todo
     context_object_name = 'task'
     success_url = reverse_lazy('tasks')
+
+    def form_valid(self, form):
+        messages.success(self.request, "Task deleted successfully!")
+        return super().form_valid(form)
+
+    def delete(self, request, *args, **kwargs):
+        response = super().delete(request, *args, **kwargs)
+        messages.success(self.request, "Task deleted successfully!")
+        return response
