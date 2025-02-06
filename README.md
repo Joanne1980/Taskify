@@ -1,6 +1,6 @@
 # Taskify
 
-[View live site here!](https://taskify-todo-eaffb38b30eb.herokuapp.com/login/)
+[View live site here!](https://taskify-todo-eaffb38b30eb.herokuapp.com/)
 
 **Project Overview**
 
